@@ -12,7 +12,7 @@ class ProjectsController < ApplicationController
       flash[:success] = "Project has been created."
       redirect_to @project
     else
-      flash[:danger] = "Project was NOT created."
+      flash.now[:danger] = "Project has not been created."
       render 'new'
     end
   end
