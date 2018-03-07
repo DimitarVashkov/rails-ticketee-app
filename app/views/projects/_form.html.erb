@@ -8,12 +8,12 @@
   <% end %>
   <p>
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: 'form-control' %>
   </p>
   <p>
     <%= f.label :description %>
-    <%= f.text_field :description %>
+    <%= f.text_field :description, class: 'form-control' %>
   </p>
 
-  <%= f.submit%>
+  <%= f.submit  class: 'btn btn-success' %>
 <% end %>

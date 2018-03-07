@@ -15,7 +15,15 @@
   </head>
 
   <body>
+  <header>
+    <%= render 'layouts/header' %>
+  </header>
+  <main class="container">
     <%= render 'layouts/flash' %>
     <%= yield %>
+  </main>
+  <footer>
+
+  </footer>
   </body>
 </html>
