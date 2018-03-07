@@ -1,6 +1,7 @@
 # README
 - Use RSpec and Capybara
 - Use BDD and TDD.
+- Use FactoryBot gem
 
 ## Using RSpec
 1. Include gem
