@@ -1,4 +1,6 @@
 class Project < ApplicationRecord
   validates :name, presence: true
-  has_many :tickets
+  # delete_all is faster than destroy as destroy gets called on
+  # every single object of the referenced class
+  has_many :tickets, dependent: :delete_all
 end
