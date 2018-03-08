@@ -8,5 +8,8 @@
 
 <h2>Tickets</h2>
 <ul class="actions">
+  <% @project.tickets.each do |ticket| %>
+    <li><%= link_to ticket.name, project_ticket_path(ticket)%> </li>
+  <% end %>
   <li><%= link_to 'New Ticket', new_project_ticket_path(@project), class:'new' %></li>
 </ul>
