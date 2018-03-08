@@ -5,3 +5,8 @@
 <%= link_to 'Edit Project', edit_project_path(@project), class: 'btn btn-primary' %>
 <%= link_to 'Delete Project', project_path(@project), method: :delete,
             data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'  %>
+
+<h2>Tickets</h2>
+<ul class="actions">
+  <li><%= link_to 'New Ticket', new_project_ticket_path(@project), class:'new' %></li>
+</ul>

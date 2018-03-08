@@ -1,0 +1,23 @@
+
+<% if project.errors.any? %>
+  <ul>
+    <% project.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+<% if ticket.errors.any? %>
+  <ul>
+    <% ticket.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_for([project, ticket]) do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name , class: 'form-control' %>
+  <%= f.label :description %>
+  <%= f.text_field :description, class: 'form-control' %>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
