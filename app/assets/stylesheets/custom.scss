@@ -8,11 +8,15 @@ nav{
 
 #navbar-custom{
   border-radius: 100px;
+  margin: 10px;
+  background-color: #44a;
+  border: none;
   .navbar-nav {
-    .active{
+    li{
       a{
         border-radius:100px;
         margin:10px;
+        color: #fbfefb;
       }
     }
   }
