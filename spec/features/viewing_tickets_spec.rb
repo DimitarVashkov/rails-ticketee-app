@@ -2,11 +2,12 @@ require 'rails_helper'
 
 RSpec.feature 'User can view tickets' do
   before do
+    author = create(:user)
     sublime = create(:project, name: 'Sublime Text 3')
-    create(:ticket, project: sublime, name: 'Make it shiny!', description: 'Gradients!')
+    create(:ticket, project: sublime, name: 'Make it shiny!', description: 'Gradients!',author:author)
 
     ie = create(:project, name: 'Internet Explorer')
-    create(:ticket, project: ie, name: 'Standards comp', description: 'Isnt a joke')
+    create(:ticket, project: ie, name: 'Standards comp', description: 'Isnt a joke',author: author)
 
     visit '/'
   end
