@@ -1,0 +1,19 @@
+<%= form_for([:admin,project]) do |f| %>
+  <% if project.errors.any? %>
+    <ul>
+      <% project.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </p>
+  <p>
+    <%= f.label :description %>
+    <%= f.text_field :description, class: 'form-control' %>
+  </p>
+
+  <%= f.submit  class: 'btn btn-success' %>
+<% end %>

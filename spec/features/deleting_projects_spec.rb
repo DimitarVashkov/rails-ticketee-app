@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.feature 'User can delete a project' do
+  before do
+    login_as(create(:user,:admin))
+  end
   scenario 'successfully' do
     project = create(:project, name: 'Sublime Text 3')
     visit '/'
