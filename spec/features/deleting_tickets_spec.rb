@@ -6,7 +6,7 @@ RSpec.feature 'Users can delete tickets' do
   let(:ticket) {create(:ticket, project: project,author: author)}
   before do
     login_as(author)
-    assign_role!(author, :viewer, project)
+    assign_role!(author, :manager, project)
     visit project_ticket_path(project, ticket)
   end
 
