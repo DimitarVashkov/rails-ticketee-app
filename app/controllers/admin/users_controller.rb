@@ -1,5 +1,6 @@
 class Admin::UsersController < Admin::ApplicationController
   before_action :set_user, only: %i[show edit update destroy archive]
+  before_action :set_projects, only: %i[new create edit update]
   def index
     @users = User.excluding_archived.order(:email)
   end
@@ -28,12 +29,23 @@ class Admin::UsersController < Admin::ApplicationController
     # and we can't store a blank password
     params[:user].delete(:password) if params[:user][:password].blank?
 
+    User.transaction do
+      @user.roles.clear
+      role_data = params.fetch(:roles, [])
+      role_data.each do |project_id, role_name|
+        if role_name.present?
+          @user.roles.build(project_id: project_id, role:role_name)
+        end
+      end
+    end
+
     if @user.update(user_params)
       flash[:success] = 'User has been updated.'
       redirect_to admin_users_url
     else
       flash[:danger] = 'User has not been updated.'
       render 'edit'
+      raise ActiveRecord::Rollback
     end
   end
 
@@ -55,5 +67,10 @@ class Admin::UsersController < Admin::ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  private
+  def set_projects
+    @projects = Project.order(:name)
   end
 end
