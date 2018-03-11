@@ -70,6 +70,7 @@
     <orderEntry type="library" scope="PROVIDED" name="orm_adapter (v0.5.0, RVM: ruby-2.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="public_suffix (v3.0.2, RVM: ruby-2.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="puma (v3.11.3, RVM: ruby-2.3.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="pundit (v1.1.0, RVM: ruby-2.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack (v2.0.4, RVM: ruby-2.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-test (v0.8.3, RVM: ruby-2.3.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails (v5.1.5, RVM: ruby-2.3.4) [gem]" level="application" />
