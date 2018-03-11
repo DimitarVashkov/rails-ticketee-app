@@ -15,6 +15,7 @@
   </table>
 </div>
 
-
+<% if policy(@ticket).update? %>
 <%= link_to 'Edit Ticket', edit_project_ticket_path(@project, @ticket) %>
+  <% end %>
 <%= link_to 'Delete Ticket', [@project, @ticket], method: :delete, data: {confirm: 'Are you sure?'} %>
