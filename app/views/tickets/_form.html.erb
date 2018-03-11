@@ -13,11 +13,10 @@
     <% end %>
   </ul>
 <% end %>
-<%= form_for([project, ticket]) do |f| %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name , class: 'form-control' %>
-  <%= f.label :description %>
-  <%= f.text_field :description, class: 'form-control' %>
-  <%= f.submit class: 'btn btn-primary' %>
+<%= simple_form_for [project, ticket] do |f| %>
+  <%= f.input :name, class: 'form-control' %>
+  <%= f.input :description, class: 'form-control' %>
+  <%= f.input :attachment, as: :file, label: "File" %>
+  <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
