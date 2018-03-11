@@ -18,5 +18,6 @@
   <%= f.input :name, class: 'form-control' %>
   <%= f.input :description, class: 'form-control' %>
   <%= f.input :attachment, as: :file, label: "File" %>
+  <%= f.input :attachment_cache, as: :hidden %>
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
