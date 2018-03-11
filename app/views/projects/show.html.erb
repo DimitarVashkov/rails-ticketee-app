@@ -2,7 +2,9 @@
 <h1><%= @project.name %></h1>
 <p><%= @project.description %></p>
 
+<% if policy(@project).update? %>
 <%= link_to 'Edit Project', edit_project_path(@project), class: 'btn btn-primary' %>
+<% end %>
 
 <% admins_only do %>
 <%= link_to 'Delete Project', admin_project_path(@project), method: :delete,
