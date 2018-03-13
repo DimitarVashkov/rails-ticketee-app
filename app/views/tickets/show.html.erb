@@ -29,6 +29,21 @@
   </table>
 </div>
 
+<header>
+  <h3>Comments</h3>
+</header>
+<div id="comments">
+  <% if @ticket.comments.persisted.any? %>
+    <%= render @ticket.comments.persisted %>
+  <% else %>
+    <p>There are no comments for this ticket.</p>
+  <% end %>
+</div>
+
+<% if policy(@comment).create? %>
+<%= render "comments/form", ticket: @ticket, comment: @comment %>
+  <% end %>
+
 <% if policy(@ticket).update? %>
 <%= link_to 'Edit Ticket', edit_project_ticket_path(@project, @ticket) %>
   <% end %>
