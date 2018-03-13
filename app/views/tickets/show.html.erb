@@ -26,6 +26,7 @@
       <th>Created:</th>
       <td><%= time_ago_in_words(@ticket.created_at) %> ago</td>
     </tr>
+
     <% if @ticket.state.present? %>
       <tr>
         <th>State:</th>
