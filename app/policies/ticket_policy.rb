@@ -18,4 +18,9 @@ class TicketPolicy < ApplicationPolicy
     user.try(:admin?) || record.project.has_manager?(user)
   end
 
+  # If the user can destroy tickets, they can also change state
+  def change_state?
+    destroy?
+  end
+
 end
