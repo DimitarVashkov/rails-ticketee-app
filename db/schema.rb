@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180314171006) do
+ActiveRecord::Schema.define(version: 20180314180251) do
 
   create_table "attachments", force: :cascade do |t|
     t.string "file"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20180314171006) do
   create_table "states", force: :cascade do |t|
     t.string "name"
     t.string "color"
+    t.boolean "default", default: false
   end
 
   create_table "tickets", force: :cascade do |t|
