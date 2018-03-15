@@ -24,4 +24,6 @@ class Ticket < ApplicationRecord
     self.state ||= State.default
   end
 
+
+
 end

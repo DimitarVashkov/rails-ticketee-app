@@ -6,7 +6,6 @@ git_source(:github) do |repo_name|
 end
 
 gem 'geckodriver-helper'
-
 gem 'devise'
 gem 'simple_form'
 gem "pundit"

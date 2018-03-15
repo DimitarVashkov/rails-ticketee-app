@@ -1,18 +1,16 @@
 class TicketsController < ApplicationController
   before_action :set_project
-  before_action :set_ticket, only: [:show, :edit, :update, :destroy]
+  before_action :set_ticket, only: %i[show edit update destroy]
   def new
     @ticket = @project.tickets.build
     authorize @ticket, :create?
-    3.times {@ticket.attachments.build}
+    3.times { @ticket.attachments.build }
   end
 
   def create
     @ticket = @project.tickets.new
     whitelisted_params = ticket_params
-    unless policy(@ticket).tag?
-      whitelisted_params.delete(:tag_names)
-    end
+    whitelisted_params.delete(:tag_names) unless policy(@ticket).tag?
     @ticket.attributes = whitelisted_params
     @ticket.author = current_user
     authorize @ticket, :create?
@@ -24,6 +22,16 @@ class TicketsController < ApplicationController
       flash.now[:danger] = 'Ticket has not been created.'
       render 'new'
     end
+  end
+
+  def search
+    authorize @project, :show?
+    if params[:search].present?
+      @tickets = @project.tickets.search(params[:search])
+    else
+      @tickets = @project.tickets
+    end
+    render "projects/show"
   end
 
   def show
@@ -55,6 +63,7 @@ class TicketsController < ApplicationController
   end
 
   private
+
   def set_project
     @project = Project.find(params[:project_id])
   end
@@ -64,7 +73,6 @@ class TicketsController < ApplicationController
   end
 
   def ticket_params
-    params.require(:ticket).permit(:name, :description, :tag_names, attachments_attributes: [:file, :file_cache])
+    params.require(:ticket).permit(:name, :description, :tag_names, attachments_attributes: %i[file file_cache])
   end
-
 end
