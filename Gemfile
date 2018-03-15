@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'geckodriver-helper'
+
 gem 'devise'
 gem 'simple_form'
 gem "pundit"
