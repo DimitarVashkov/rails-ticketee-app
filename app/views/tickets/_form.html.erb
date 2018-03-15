@@ -17,6 +17,7 @@
 <%= simple_form_for [project, ticket] do |f| %>
   <%= f.input :name, class: 'form-control' %>
   <%= f.input :description, class: 'form-control' %>
+  <%= f.input :tag_names, label: "Tags" %>
 
   <h3>Attachments</h3>
   <%= f.simple_fields_for :attachments do |ff| %>
